@@ -24,8 +24,15 @@
 
 import Foundation
 
+#if canImport(UIKit) && canImport(CoreGraphics)
+import UIKit
+import CoreGraphics
+
+/// A two dimensional size.
 public struct Size {
+    /// The width.
     public let width: Float
+    /// The height.
     public let height: Float
     
     public init(width: Float, height: Float) {
@@ -40,14 +47,15 @@ public struct Size {
 
 public extension Size {
     
-    public var asCGSize: CGSize {
+    var asCGSize: CGSize {
         return CGSize(size: self)
     }
 }
 
 public extension CGSize {
     
-    public init(size: Size) {
+    init(size: Size) {
         self.init(width: CGFloat(size.width), height: CGFloat(size.height))
     }
 }
+#endif

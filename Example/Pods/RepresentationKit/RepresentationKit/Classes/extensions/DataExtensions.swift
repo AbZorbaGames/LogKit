@@ -1,8 +1,8 @@
 //
-//  DictionaryExtension.swift
+//  DataExtensions.swift
 //  RepresentationKit
 //
-//  Created by Georges Boumis on 20/08/2017.
+//  Created by Georges Boumis on 19/11/2018.
 //
 //  Licensed to the Apache Software Foundation (ASF) under one
 //  or more contributor license agreements.  See the NOTICE file
@@ -24,13 +24,9 @@
 
 import Foundation
 
-extension Dictionary where Key: LosslessStringConvertible {
+extension Data: Representable {
     
-    public func represent<Rep>(using representation: Rep) -> Rep where Rep: AbzorbaRepresentation {
-        return self.reduce(representation) { (rep, pair) -> Rep in
-            let key = pair.key
-            let value = pair.value
-            return rep.with(key: key, value: value) as! Rep
-        }
+    public func represent(using representation: AbzorbaRepresentation) -> AbzorbaRepresentation {
+        return representation.with(key: "data", value: self)
     }
 }

@@ -1,8 +1,8 @@
 //
-//  DictionaryExtension.swift
+//  DataFromJSONRepresentation.swift
 //  RepresentationKit
 //
-//  Created by Georges Boumis on 20/08/2017.
+//  Created by Georges Boumis on 19/11/2018.
 //
 //  Licensed to the Apache Software Foundation (ASF) under one
 //  or more contributor license agreements.  See the NOTICE file
@@ -24,13 +24,21 @@
 
 import Foundation
 
-extension Dictionary where Key: LosslessStringConvertible {
-    
-    public func represent<Rep>(using representation: Rep) -> Rep where Rep: AbzorbaRepresentation {
-        return self.reduce(representation) { (rep, pair) -> Rep in
-            let key = pair.key
-            let value = pair.value
-            return rep.with(key: key, value: value) as! Rep
-        }
+public struct DataFromJSONRepresentation: DataRepresentation  {
+    public var data: Data {
+        return self.json.jsonData!
+    }
+    private let json: JSONRepresentationBuilder
+
+    public func with<Key, Value>(key: Key, value: Value) -> AbzorbaRepresentation where Key : Hashable, Key : LosslessStringConvertible {
+        return DataFromJSONRepresentation(builder: self.json.with(key: key, value: value))
+    }
+
+    public init() {
+        self.init(builder: JSONRepresentationBuilder())
+    }
+
+    private init(builder: JSONRepresentationBuilder) {
+        self.json = builder
     }
 }

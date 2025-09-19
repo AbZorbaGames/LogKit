@@ -1,9 +1,9 @@
 {
   "name": "ContentKit",
-  "version": "2.3",
+  "version": "2.6",
   "summary": "Manage content.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/averello/ContentKit",
+  "homepage": "https://github.com/AbZorbaGames/ContentKit",
   "license": {
     "type": "Apache 2.0",
     "file": "LICENSE"
@@ -12,16 +12,14 @@
     "Georges Boumis": "developer.george.boumis@gmail.com"
   },
   "source": {
-    "git": "https://github.com/averello/ContentKit.git",
-    "tag": "2.3"
+    "git": "https://github.com/AbZorbaGames/ContentKit.git",
+    "tag": "2.6"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "13.0"
   },
   "source_files": "ContentKit/Classes/**/*",
   "dependencies": {
-    "RepresentationKit": [
-
-    ]
+    "RepresentationKit": []
   }
 }

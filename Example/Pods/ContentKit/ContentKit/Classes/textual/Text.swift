@@ -23,45 +23,59 @@
 //
 
 import Foundation
+
+#if canImport(RepresentationKit)
 import RepresentationKit
 
+/// Text is some Content.
 public protocol Text: Content, Representable, LosslessStringConvertible, CustomPlaygroundDisplayConvertible {
+    /// The content of the text.
     var content: String { get }
+    /// A Boolean indicating wether the receiver is empty.
     var empty: Bool { get }
 }
+#else
+/// Text is some Content.
+public protocol Text: Content, LosslessStringConvertible, CustomPlaygroundDisplayConvertible {
+    /// The content of the text.
+    var content: String { get }
+    /// A Boolean indicating wether the receiver is empty.
+    var empty: Bool { get }
+}
+#endif
 
 public extension Text {
     
-    public var description: String {
+    var description: String {
         return self.content
     }
     
-    public var empty: Bool { return self.content.isEmpty }
+    var empty: Bool { return self.content.isEmpty }
 }
 
 public extension Text {
     
-    public func debugQuickLookObject() -> AnyObject? {
+    func debugQuickLookObject() -> AnyObject? {
         return self.content as NSString
     }
     
-    public var playgroundDescription: Any {
+    var playgroundDescription: Any {
         return self.content
     }
 }
 
 public extension Text {
     
-    public var hashValue: Int {
+    var hashValue: Int {
         return self.content.hashValue
     }
     
-    public static func == (lhs: Self, rhs: Self) -> Bool {
+    static func == (lhs: Self, rhs: Self) -> Bool {
         return (lhs.content.hashValue == rhs.content.hashValue) ||
             (lhs.content == rhs.content)
     }
     
-    public static func < (lhs: Self, rhs: Self) -> Bool {
+    static func < (lhs: Self, rhs: Self) -> Bool {
         return (lhs.content < rhs.content)
     }
 }
@@ -76,7 +90,9 @@ extension String: Text {
         return self
     }
 
-    public func represent(using representation: Representation) -> Representation {
+    #if canImport(RepresentationKit)
+    public func represent(using representation: AbzorbaRepresentation) -> AbzorbaRepresentation {
         return representation.with(key: TextKey(), value: self)
     }
+    #endif
 }

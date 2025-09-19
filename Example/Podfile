@@ -1,11 +1,11 @@
 use_frameworks!
-platform :ios, '8.0'
+platform :ios, '13.0'
 
 target 'LogKit_Tests' do
   pod 'LogKit', :path => '../'
   
-  pod 'RepresentationKit', :git => 'https://github.com/averello/RepresentationKit.git'
-  pod 'ContentKit', :git => 'https://github.com/averello/ContentKit.git'
-  pod 'Ents', :git => 'https://github.com/averello/Ents.git'
+  pod 'RepresentationKit', :git => 'https://github.com/AbZorbaGames/RepresentationKit.git'
+  pod 'ContentKit', :git => 'https://github.com/AbZorbaGames/ContentKit.git'
+  pod 'Ents', :git => 'https://github.com/AbZorbaGames/Ents.git',:tag=> 'v3.1.9'
   
 end

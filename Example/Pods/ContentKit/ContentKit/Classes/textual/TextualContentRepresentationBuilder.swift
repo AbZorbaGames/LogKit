@@ -23,10 +23,11 @@
 //
 
 import Foundation
+#if canImport(RepresentationKit)
 import RepresentationKit
 
 /// Use this to create a ServerMessage from a json string
-public struct TextRepresentationBuilder: TextRepresentation {
+public struct TextRepresentationBuilder: TextRepresentation, AbzorbaRepresentation {
     private let _string: String
     public var content: String {
         return "{ \(self._string) }"
@@ -41,7 +42,7 @@ public struct TextRepresentationBuilder: TextRepresentation {
     }
 
     // gets key == "value" as value a String
-    public func with<Key,Value>(key: Key, value: Value) -> Representation where Key: LosslessStringConvertible & Hashable {
+    public func with<Key,Value>(key: Key, value: Value) -> AbzorbaRepresentation where Key: LosslessStringConvertible & Hashable {
         let notEmpty = !self._string.isEmpty
         var string = self._string
         if notEmpty {
@@ -51,3 +52,4 @@ public struct TextRepresentationBuilder: TextRepresentation {
         return TextRepresentationBuilder(string)!
     }
 }
+#endif

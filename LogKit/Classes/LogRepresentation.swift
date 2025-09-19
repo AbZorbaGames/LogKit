@@ -41,7 +41,7 @@ public struct LogRepresentation: TextRepresentation {
     }
 
     // gets key == "value" as value a String
-    public func with<Key,Value>(key: Key, value: Value) -> Representation where Key: LosslessStringConvertible & Hashable {
+    public func with<Key,Value>(key: Key, value: Value) -> AbzorbaRepresentation where Key: LosslessStringConvertible & Hashable {
         let string = self._string + "[\(Date())]: \(value)\n"
         return LogRepresentation(string)!
     }

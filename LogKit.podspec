@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LogKit'
-  s.version          = '2.2'
+  s.version          = '2.3'
   s.summary          = 'Quick logging based on representations of objects.'
 
 # This description is used to generate tags and improve search results.
@@ -21,20 +21,20 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/averello/LogKit'
+  s.homepage         = 'https://github.com/AbZorbaGames/LogKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Georges Boumis' => 'developer.george.boumis@gmail.com' }
-  s.source           = { :git => 'https://github.com/averello/LogKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/AbZorbaGames/LogKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '13.0'
 
   s.source_files = 'LogKit/Classes/**/*'
 
 
   s.xcconfig = { 
-	  "SWIFT_VERSION" => '4.2'
+	  "SWIFT_VERSION" => '5.0'
   }
   
   # s.resource_bundles = {

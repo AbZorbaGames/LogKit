@@ -24,7 +24,6 @@
 
 import Foundation
 
-
 /// Describes an array representation. Also the conforming class can be
 /// represented itself.
 ///
@@ -48,7 +47,7 @@ import Foundation
 ///     // Prints ["Super title", "Pepper's"]
 ///
 /// - SeeAlso: `TypedArrayRepresentation`
-public protocol ArrayRepresentation: Representation, Representable {
+public protocol ArrayRepresentation: AbzorbaRepresentation, Representable {
     
     /// the array of the represented values.
     var array: [Any] { get }
@@ -56,7 +55,7 @@ public protocol ArrayRepresentation: Representation, Representable {
 
 public extension ArrayRepresentation {
     
-    public func represent<Rep>(using representation: Rep) -> Rep where Rep: Representation {
+    func represent<Rep>(using representation: Rep) -> Rep where Rep: AbzorbaRepresentation {
         var r = representation
         
         for (index,element) in self.array.enumerated() {

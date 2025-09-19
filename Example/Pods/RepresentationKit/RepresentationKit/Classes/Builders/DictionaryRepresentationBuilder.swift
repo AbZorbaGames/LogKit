@@ -24,7 +24,6 @@
 
 import Foundation
 
-
 /// Building a Dictionary Representation of a conforming object
 final public class DictionaryRepresentationBuilder: DictionaryRepresentation {
 	final public let dictionary: [String : Any]
@@ -37,7 +36,7 @@ final public class DictionaryRepresentationBuilder: DictionaryRepresentation {
 		self.dictionary = dictionary
 	}
 
-	final public func with<Key,Value>(key: Key, value: Value) -> Representation where Key: LosslessStringConvertible & Hashable {
+	final public func with<Key,Value>(key: Key, value: Value) -> AbzorbaRepresentation where Key: LosslessStringConvertible & Hashable {
         var dictionary  = self.dictionary
         dictionary[String(key)] = value
 		return DictionaryRepresentationBuilder(dictionary: dictionary)

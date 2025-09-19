@@ -24,21 +24,27 @@
 
 import Foundation
 
+#if canImport(UIKit) && canImport(CoreGraphics)
+import UIKit
+
+/// An image is a visual content.
 public protocol Image: VisualContent, CustomPlaygroundDisplayConvertible {
+    /// The backing `UIKit` image.
     var image: UIImage { get }
-    var size: Size { get }
+    /// The size of the Image.
+    var size: ContentKit.Size { get }
 }
 
 public extension Image {
     
-    public var size: Size {
-        return Size(size: self.image.size)
+    var size: ContentKit.Size {
+        return ContentKit.Size(size: self.image.size)
     }
 }
 
 public extension Image {
     
-    public var playgroundDescription: Any {
+    var playgroundDescription: Any {
         return self.image
     }
     
@@ -46,24 +52,31 @@ public extension Image {
 
 public extension Image {
     
-    public func debugQuickLookObject() -> AnyObject? {
+    func debugQuickLookObject() -> AnyObject? {
         return self.image
     }
 }
 
 public extension Image {
-    
-    public func configure(imageView: UIImageView) {
+
+    /// Configures an image view with the receiver.
+    /// - parameter imageView: The image view.
+    func configure(imageView: UIImageView) {
         imageView.image = self.image
     }
-    
-    public func configure(button: UIButton) {
+
+    /// Configures a button with the receiver.
+    /// - parameter button: The button.
+    func configure(button: UIButton) {
         button.setImage(self.image,
                         for: UIControl.State.normal)
     }
-    
-    public func configureBackground(button: UIButton) {
+
+    /// Configures the background of the receiver.
+    /// - parameter button: The button.
+    func configureBackground(button: UIButton) {
         button.setBackgroundImage(self.image,
                                   for: UIControl.State.normal)
     }
 }
+#endif

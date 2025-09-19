@@ -24,7 +24,6 @@
 
 import Foundation
 
-
 /// The conforming class can be represented as a JSON string
 final public class JSONRepresentationBuilder: JSONRepresentation {
 	final private let builder: DictionaryRepresentationBuilder
@@ -48,7 +47,7 @@ final public class JSONRepresentationBuilder: JSONRepresentation {
 		self.builder = builder
 	}
 
-	final public func with<Key,Value>(key: Key, value: Value) -> Representation where Key: LosslessStringConvertible & Hashable {
+	final public func with<Key,Value>(key: Key, value: Value) -> AbzorbaRepresentation where Key: LosslessStringConvertible & Hashable {
         let dictRep: DictionaryRepresentationBuilder = self.builder.with(key: key, value: value)
         return JSONRepresentationBuilder(builder: dictRep)
 	}

@@ -39,8 +39,8 @@ final public class InMemoryLog: Log {
         self.logs.append(representation)
     }
 
-    final public func represent(using representation: Representation) -> Representation {
-        return self.logs.reduce(representation) { (rep, r) -> Representation in
+    final public func represent(using representation: AbzorbaRepresentation) -> AbzorbaRepresentation {
+        return self.logs.reduce(representation) { (rep, r) -> AbzorbaRepresentation in
             rep.with(key: TextKey(), value: r.content)
         }
     }

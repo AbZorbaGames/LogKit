@@ -1,45 +1,46 @@
 PODS:
-  - ContentKit (2.3):
+  - ContentKit (2.6):
     - RepresentationKit
-  - Ents (3.1.1)
-  - LogKit (2.2):
+  - Ents (3.1.9)
+  - LogKit (2.3):
     - ContentKit
     - RepresentationKit
-  - RepresentationKit (2.2)
+  - RepresentationKit (2.6)
 
 DEPENDENCIES:
-  - ContentKit (from `https://github.com/averello/ContentKit.git`)
-  - Ents (from `https://github.com/averello/Ents.git`)
+  - ContentKit (from `https://github.com/AbZorbaGames/ContentKit.git`)
+  - Ents (from `https://github.com/AbZorbaGames/Ents.git`, tag `v3.1.9`)
   - LogKit (from `../`)
-  - RepresentationKit (from `https://github.com/averello/RepresentationKit.git`)
+  - RepresentationKit (from `https://github.com/AbZorbaGames/RepresentationKit.git`)
 
 EXTERNAL SOURCES:
   ContentKit:
-    :git: https://github.com/averello/ContentKit.git
+    :git: https://github.com/AbZorbaGames/ContentKit.git
   Ents:
-    :git: https://github.com/averello/Ents.git
+    :git: https://github.com/AbZorbaGames/Ents.git
+    :tag: v3.1.9
   LogKit:
     :path: "../"
   RepresentationKit:
-    :git: https://github.com/averello/RepresentationKit.git
+    :git: https://github.com/AbZorbaGames/RepresentationKit.git
 
 CHECKOUT OPTIONS:
   ContentKit:
-    :commit: def45349a03d039d51db5a71c3ca768bf6ec1d25
-    :git: https://github.com/averello/ContentKit.git
+    :commit: 17a819c6cc4f8985f2da7f51e9f681787d6974c7
+    :git: https://github.com/AbZorbaGames/ContentKit.git
   Ents:
-    :commit: 2d6d8a352bc35be340a56929da21e4ed9cfe4ce6
-    :git: https://github.com/averello/Ents.git
+    :git: https://github.com/AbZorbaGames/Ents.git
+    :tag: v3.1.9
   RepresentationKit:
-    :commit: 87c8045f94bbb9aaba43de8273ddee966229190a
-    :git: https://github.com/averello/RepresentationKit.git
+    :commit: 38197edc0bc471b76c92ca4fc8c9428fd2db41e8
+    :git: https://github.com/AbZorbaGames/RepresentationKit.git
 
 SPEC CHECKSUMS:
-  ContentKit: 46f66173851d13e8242dc84337a9fd7ec62ed54d
-  Ents: 8c03f9a801f0677cd6b2f2e00e9ad03e0a195d84
-  LogKit: 4399e0966adf6db4d02610301e0bf5f7f3e7281c
-  RepresentationKit: f1cbe81fe33fe738a2a3d8a1f752359cbb57172c
+  ContentKit: 24d8c33e522e002ceb967f051908eef44db485ed
+  Ents: c16cfc96cd67165292e247e788100170d61d8deb
+  LogKit: 55d315895ea5c25c1fa1cc06c6ca5ff65c096bcb
+  RepresentationKit: da5fcf3a2d93e399974108fb3afa2f67b25ebdfc
 
-PODFILE CHECKSUM: 5711bfc048b26fddfb6dd55882739a8be6b69c71
+PODFILE CHECKSUM: a0399df3b6cedada49052ac23e0a6106839fb49e
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.16.2

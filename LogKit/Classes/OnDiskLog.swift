@@ -76,8 +76,8 @@ extension OnDiskLog {
         }
     }
 
-    final public func represent(using representation: Representation) -> Representation {
-        var result: Representation!
+    final public func represent(using representation: AbzorbaRepresentation) -> AbzorbaRepresentation {
+        var result: AbzorbaRepresentation!
         self.queue.sync {
             self._useAutoreleasePoolIfNeeded {
                 result = self._represent(using: representation)
@@ -104,7 +104,7 @@ extension OnDiskLog {
         self.file.write(data)
     }
 
-    final fileprivate func _represent(using representation: Representation) -> Representation {
+    final fileprivate func _represent(using representation: AbzorbaRepresentation) -> AbzorbaRepresentation {
         self.file.synchronizeFile()
         let content = try! String(contentsOfFile: self.path)
         return representation.with(key: TextKey(), value: content)
